@@ -1,0 +1,28 @@
+spring:
+  profiles:
+    active: dev
+
+server:
+  port: 8080
+
+management:
+  server:
+    port: 8081
+  endpoints:
+    web:
+      base-path: /manage
+      exposure.include: "*"
+
+aws-system-manager-parameter-store:
+  secret-manager:
+    region: "eu-north-1"
+
+---
+spring:
+  profiles:
+    - dev
+
+---
+spring:
+  profiles:
+    - prod
